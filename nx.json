@@ -14,7 +14,7 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "cacheableOperations": ["build", "lint", "test"],
         "accessToken": "MDQ5YTE1MjEtOGUzYy00MWEyLWI4NGYtZTJhODA3MGJjZjc3fHJlYWQtd3JpdGU=",
         "canTrackAnalytics": true,
         "showUsageWarnings": true
@@ -32,10 +32,6 @@
   "projects": {
     "energy-insights-app": {
       "tags": ["type:app"]
-    },
-    "energy-insights-app-e2e": {
-      "tags": [],
-      "implicitDependencies": ["energy-insights-app"]
     }
   }
 }
