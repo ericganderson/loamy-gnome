@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core'
 import {Observable, of} from 'rxjs'
+import {Co2EmissionPrognosisInterface} from './type/co2EmmisionPrognosis.interface'
 
 const url = 'https://api.energidataservice.dk/datastore_search_sql'
 // sql
@@ -13,17 +14,11 @@ const url = 'https://api.energidataservice.dk/datastore_search_sql'
 //   }
 // }
 
-export interface Co2EmissionPrognosisRecord {
-  readonly co2Emission: number
-  readonly minutesSUTC: Date
-  readonly priceArea: 'DK1' | 'DK2'
-}
-
 @Injectable({
   providedIn: 'root',
 })
 export class Co2EmissionPrognosisHttp {
-  get(): Observable<readonly Co2EmissionPrognosisRecord[]> {
+  get(): Observable<readonly Co2EmissionPrognosisInterface[]> {
     return of([])
   }
 }

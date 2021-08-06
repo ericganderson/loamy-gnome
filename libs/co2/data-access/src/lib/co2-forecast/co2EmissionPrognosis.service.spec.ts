@@ -1,6 +1,6 @@
 import {TestBed} from '@angular/core/testing'
 
-import {Co2EmissionPrognosisHttp} from './co2-emission-prognosis-http.service'
+import {Co2EmissionPrognosisHttp} from './co2EmissionPrognosis.service'
 
 describe(Co2EmissionPrognosisHttp.name, () => {
   beforeEach(() => {
