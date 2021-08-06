@@ -16,16 +16,16 @@ specifiers:
   '@angular/platform-browser-dynamic': ^12.1.0
   '@angular/router': ^12.1.0
   '@nrwl/angular': ^12.6.5
-  '@nrwl/cli': 12.6.5
-  '@nrwl/cypress': 12.6.5
-  '@nrwl/eslint-plugin-nx': 12.6.5
-  '@nrwl/jest': 12.6.5
-  '@nrwl/linter': 12.6.5
+  '@nrwl/cli': ~12.6.5
+  '@nrwl/cypress': ~12.6.5
+  '@nrwl/eslint-plugin-nx': ~12.6.5
+  '@nrwl/jest': ~12.6.5
+  '@nrwl/linter': ~12.6.5
   '@nrwl/nx-cloud': latest
-  '@nrwl/tao': 12.6.5
-  '@nrwl/workspace': 12.6.5
-  '@types/jest': 26.0.24
-  '@types/node': 14.14.33
+  '@nrwl/tao': ~12.6.5
+  '@nrwl/workspace': ~12.6.5
+  '@types/jest': ~26.0.24
+  '@types/node': ~14.14.33
   '@typescript-eslint/eslint-plugin': ~4.28.3
   '@typescript-eslint/parser': ~4.28.3
   cypress: ^7.3.0
@@ -33,11 +33,11 @@ specifiers:
   eslint: 7.22.0
   eslint-config-prettier: 8.1.0
   eslint-plugin-cypress: ^2.10.3
-  jest: 27.0.3
-  jest-preset-angular: 9.0.4
+  jest: ~27.0.3
+  jest-preset-angular: ~9.0.4
   prettier: ^2.3.1
   rxjs: ~6.6.0
-  ts-jest: 27.0.3
+  ts-jest: ~27.0.3
   ts-node: ~9.1.1
   tslib: ^2.0.0
   typescript: ~4.3.5
@@ -7466,7 +7466,7 @@ packages:
       pretty-format: 27.0.6
       ts-jest: 27.0.3_jest@27.0.3+typescript@4.3.5
     optionalDependencies:
-      webpack: 4.46.0
+      webpack: 5.44.0
     transitivePeerDependencies:
       - bufferutil
       - canvas
@@ -7474,7 +7474,6 @@ packages:
       - typescript
       - utf-8-validate
       - webpack-cli
-      - webpack-command
     dev: true
 
   /jest-regex-util/27.0.6:
