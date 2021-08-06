@@ -1,5 +1,9 @@
-const {getJestProjects} = require('@nrwl/jest')
+// const {getJestProjects} = require('@nrwl/jest')
 
 module.exports = {
-  projects: getJestProjects(),
+  projects: [
+    // getJestProjects(),
+    '<rootDir>/apps/energy-insights-app',
+    '<rootDir>/libs/co2/data-access',
+  ],
 }

@@ -30,6 +30,12 @@
     ]
   },
   "projects": {
+    "co2-data-access": {
+      "tags": ["scope:co2", "type:data-access"]
+    },
+    "data-access": {
+      "tags": []
+    },
     "energy-insights-app": {
       "tags": ["type:app"]
     }
