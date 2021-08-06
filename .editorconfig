@@ -12,3 +12,15 @@ max_line_length = 80
 [*.md]
 max_line_length = off
 trim_trailing_whitespace = false
+
+[*.{css,scss}]
+quote_type = single
+
+[*.html]
+max_line_length = 120
+
+[*.{json,yaml,yml}]
+max_line_length = off
+
+[*.ts]
+quote_type = single
