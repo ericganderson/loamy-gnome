@@ -38,7 +38,7 @@ export class Co2ForecastStore extends ComponentStore<Co2ForecastState> {
       switchMap(queryFilter =>
         this.http.get().pipe(
           tapResponse(
-            records => records.updateRecords(records),
+            records => this.updateRecords(records),
 
             () => this.updateRecords([])
           )
