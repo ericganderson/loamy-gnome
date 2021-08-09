@@ -3,8 +3,8 @@ import {ComponentStore, tapResponse} from '@ngrx/component-store'
 import {combineLatest, Observable, timer} from 'rxjs'
 import {switchMap} from 'rxjs/operators'
 
-import {Co2EmissionPrognosisInterface} from './type/co2EmmisionPrognosis.interface'
-import {Co2EmissionPrognosisHttp} from './co2EmissionPrognosis.service'
+import {Co2EmissionPrognosisInterface} from '../type/co2EmmisionPrognosis.interface'
+import {Co2EmissionPrognosisHttp} from '../service/co2EmissionPrognosis.service'
 
 interface Co2ForecastState {
   readonly records: readonly Co2EmissionPrognosisInterface[]

@@ -6,9 +6,10 @@ import {mergeMap, tap} from 'rxjs/operators'
 import {
   Co2EmissionPrognosisInterface,
   Co2EmissionPrognosisType,
-} from './type/co2EmmisionPrognosis.interface'
-import {CkanResponseInterface} from './type/ckanResponse.interface'
-import {CkanErrorResponseInterface} from './type/ckanErrorResponse.interface'
+} from '../type/co2EmmisionPrognosis.interface'
+import {CkanResponseInterface} from '../type/ckanResponse.interface'
+import {CkanErrorResponseInterface} from '../type/ckanErrorResponse.interface'
+import {Co2EmissionPrognosisHttp} from './co2EmissionPrognosis.service'
 
 const url = 'https://api.energidataservice.dk/datastore_search_sql'
 
@@ -19,6 +20,7 @@ export class Co2EmissionPrognosisHttp {
   constructor(private http: HttpClient) {}
 
   get(): Observable<Co2EmissionPrognosisType> {
+    // TODO: remove new lines
     const sql = `SELECT "Minutes5UTC" AS "minute5utc"
       ,"PriceArea" AS "priceArea"
       ,"CO2Emmision" AS "co2Emmision"

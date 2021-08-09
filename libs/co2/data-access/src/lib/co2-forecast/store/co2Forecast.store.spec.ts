@@ -3,9 +3,9 @@ import {TestBed} from '@angular/core/testing'
 import {first, skip, take} from 'rxjs/operators'
 
 import {Co2ForecastStore} from './co2Forecast.store'
-import {Co2EmissionPrognosisHttp} from './co2EmissionPrognosis.service'
+import {Co2EmissionPrognosisHttp} from '../service/co2EmissionPrognosis.service'
 import {Observable, of, throwError} from 'rxjs'
-import {Co2EmissionPrognosisType} from './type/co2EmmisionPrognosis.interface'
+import {Co2EmissionPrognosisType} from '../type/co2EmmisionPrognosis.interface'
 
 describe(Co2ForecastStore.name, () => {
   function setup({
