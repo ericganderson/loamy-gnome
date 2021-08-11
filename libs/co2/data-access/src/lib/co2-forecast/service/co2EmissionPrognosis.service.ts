@@ -12,6 +12,7 @@ import {CkanErrorResponseInterface} from '../type/ckanErrorResponse.interface'
 import {DateQueryInterface} from '../type/dateQuery.interface'
 import {CreateCo2ForecastSqlQuery} from './createCo2ForecastSqlQuery'
 import {EnergiDataServiceEndpointEnv} from '../env/energiDataServiceEndpoint.env'
+import {TrimSqlParameter} from './trimSqlParameter'
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +21,8 @@ export class Co2EmissionPrognosisHttp {
   constructor(private http: HttpClient) {}
 
   get(dateQuery: DateQueryInterface): Observable<Co2EmissionPrognosisType> {
-    const sql = CreateCo2ForecastSqlQuery(dateQuery)
+    const sql = TrimSqlParameter(CreateCo2ForecastSqlQuery(dateQuery))
+
     return this.http
       .get<
         | CkanResponseInterface<Co2EmissionPrognosisInterface>
