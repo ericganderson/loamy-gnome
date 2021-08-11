@@ -68,7 +68,7 @@ devDependencies:
   '@nrwl/eslint-plugin-nx': 12.6.5_fbc8a26641f03e1686929415fa2f1a12
   '@nrwl/jest': 12.6.5_ts-node@9.1.1
   '@nrwl/linter': 12.6.5
-  '@nrwl/nx-cloud': 12.3.6
+  '@nrwl/nx-cloud': 12.3.8
   '@nrwl/tao': 12.6.5
   '@nrwl/workspace': 12.6.5_prettier@2.3.2+ts-node@9.1.1
   '@types/jest': 26.0.24
@@ -2944,8 +2944,8 @@ packages:
       tmp: 0.2.1
       tslib: 2.3.0
 
-  /@nrwl/nx-cloud/12.3.6:
-    resolution: {integrity: sha512-i6OhNEs8+vPCQrWtEICwy9s1qdB6YQSILIWyLmg24YajE0pjyJNd1G7JoX4b+Swylwsv5omFrnnO7xJ0ngMy1w==}
+  /@nrwl/nx-cloud/12.3.8:
+    resolution: {integrity: sha512-uOCydo2upopx0d439r2EqLPx9+SbXt5EcaWXT3txigD85Z78cZY2NmW5RYFk+t1OeAUCGz24Lp61Mseng7wJ0g==}
     hasBin: true
     dependencies:
       axios: 0.21.1

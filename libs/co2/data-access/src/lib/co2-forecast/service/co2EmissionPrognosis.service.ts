@@ -9,9 +9,9 @@ import {
 } from '../type/co2EmmisionPrognosis.interface'
 import {CkanResponseInterface} from '../type/ckanResponse.interface'
 import {CkanErrorResponseInterface} from '../type/ckanErrorResponse.interface'
-import {Co2EmissionPrognosisHttp} from './co2EmissionPrognosis.service'
-
-const url = 'https://api.energidataservice.dk/datastore_search_sql'
+import {DateQueryInterface} from '../type/dateQuery.interface'
+import {CreateCo2ForecastSqlQuery} from './createCo2ForecastSqlQuery'
+import {EnergiDataServiceEndpointEnv} from '../env/energiDataServiceEndpoint.env'
 
 @Injectable({
   providedIn: 'root',
@@ -19,19 +19,13 @@ const url = 'https://api.energidataservice.dk/datastore_search_sql'
 export class Co2EmissionPrognosisHttp {
   constructor(private http: HttpClient) {}
 
-  get(): Observable<Co2EmissionPrognosisType> {
-    // TODO: remove new lines
-    const sql = `SELECT "Minutes5UTC" AS "minute5utc"
-      ,"PriceArea" AS "priceArea"
-      ,"CO2Emmision" AS "co2Emmision"
-    FROM "co2emisprog"
-    -- TODO: WHERE clause
-    ORDER BY "Minutes5UTC" ASC`
+  get(dateQuery: DateQueryInterface): Observable<Co2EmissionPrognosisType> {
+    const sql = CreateCo2ForecastSqlQuery(dateQuery)
     return this.http
       .get<
         | CkanResponseInterface<Co2EmissionPrognosisInterface>
         | CkanErrorResponseInterface
-      >(url, {params: {sql}})
+      >(EnergiDataServiceEndpointEnv, {params: {sql}})
       .pipe(
         tap(response => console.log(response)),
         mergeMap(response =>
