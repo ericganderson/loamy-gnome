@@ -10,5 +10,8 @@
     "lib": ["dom", "es2018"]
   },
   "exclude": ["src/test-setup.ts", "**/*.spec.ts"],
-  "include": ["**/*.ts"]
+  "include": [
+    "**/*.ts",
+    "../../co2/data-access/src/lib/co2-forecast/env/energiDataServiceEndpoint.env.ts"
+  ]
 }

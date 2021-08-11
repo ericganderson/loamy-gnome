@@ -4,10 +4,10 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing'
 
-import {EnergiDataServiceEndpointEnv} from '../../../../../../root/environments/src/lib/energiDataServiceEndpoint.env'
 import {Co2EmissionPrognosisHttp} from '../service/co2EmissionPrognosis.service'
 import {Co2EmissionPrognosisInterface} from '../type/co2EmmisionPrognosis.interface'
 import {CkanErrorResponseInterface} from '../type/ckanErrorResponse.interface'
+import {EnergiDataServiceEndpointEnv} from '../env/energiDataServiceEndpoint.env'
 
 describe(Co2EmissionPrognosisHttp.name, () => {
   beforeEach(() => {
