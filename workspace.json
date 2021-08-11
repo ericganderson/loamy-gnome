@@ -135,26 +135,13 @@
       "projectType": "library",
       "root": "libs/root/assets",
       "sourceRoot": "libs/root/assets/src",
-      "prefix": "nrg",
-      "targets": {
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/root/assets"],
-          "options": {
-            "jestConfig": "libs/root/assets/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/root/assets/src/**/*.ts",
-              "libs/root/assets/src/**/*.html"
-            ]
-          }
-        }
-      }
+      "targets": {}
+    },
+    "root-styles": {
+      "projectType": "library",
+      "root": "libs/root/styles",
+      "sourceRoot": "libs/root/styles/src",
+      "targets": {}
     }
   }
 }
