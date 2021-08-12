@@ -5,14 +5,20 @@ import {switchMap} from 'rxjs/operators'
 
 import {Co2EmissionPrognosisType} from '../type/co2EmmisionPrognosis.interface'
 import {Co2EmissionPrognosisHttp} from '../service/co2EmissionPrognosis.service'
-import {DateQueryInterface} from 'libs/co2/data-access/src/lib/co2-forecast/type/dateQuery.interface'
+import {DateQueryInterface} from '../type/dateQuery.interface'
+import {CreateCo2ForecastDateQuery} from 'libs/co2/data-access/src/lib/co2-forecast/store/createCo2ForecastDateQuery'
 
 interface Co2ForecastState {
+  readonly dateQuery: DateQueryInterface
   readonly records: Co2EmissionPrognosisType
 }
 
 @Injectable()
 export class Co2ForecastStore extends ComponentStore<Co2ForecastState> {
+  private dateQuery$: Observable<DateQueryInterface> = this.select(
+    state => state.dateQuery
+  )
+
   records$: Observable<Co2EmissionPrognosisType> = this.select(
     state => state.records,
     {
@@ -21,27 +27,24 @@ export class Co2ForecastStore extends ComponentStore<Co2ForecastState> {
   )
 
   constructor(private http: Co2EmissionPrognosisHttp) {
-    super(initialState)
+    super(CreateInitialState(new Date()))
 
-    this.loadRecordsEveryMinute({
-      from: new Date(),
-      to: new Date(),
-    })
+    this.loadRecordsEveryMinute(this.dateQuery$)
   }
 
-  private loadRecordsEveryMinute = this.effect<DateQueryInterface>(
-    queryFilter$ =>
-      combineLatest([queryFilter$, timer(0, 60 * 1000)]).pipe(
-        switchMap(queryFilter =>
-          this.http.get().pipe(
-            tapResponse(
-              records => this.updateRecords(records),
+  // NOTE After timer cycles, performs an effect, an http request using the date query, with proper response updating the records and an error clearing them
+  private loadRecordsEveryMinute = this.effect<DateQueryInterface>(dateQuery$ =>
+    combineLatest([dateQuery$, timer(0, 60 * 1000)]).pipe(
+      switchMap(([dateQuery]) =>
+        this.http.get(dateQuery).pipe(
+          tapResponse(
+            records => this.updateRecords(records),
 
-              () => this.updateRecords([])
-            )
+            () => this.updateRecords([])
           )
         )
       )
+    )
   )
 
   private updateRecords = this.updater<Co2EmissionPrognosisType>(
@@ -52,6 +55,9 @@ export class Co2ForecastStore extends ComponentStore<Co2ForecastState> {
   )
 }
 
-const initialState: Co2ForecastState = {
-  records: [],
+function CreateInitialState(now: Date): Co2ForecastState {
+  return {
+    dateQuery: CreateCo2ForecastDateQuery(now),
+    records: [],
+  }
 }
